@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("./db");
+const User = require("../db/user.js");
 
 function authenticatePassword(password) {
   return password.length <= 15 && password.length >= 5; //my function
@@ -12,7 +12,6 @@ router.get('/me', (req, res, next) => { //ideally i want the route to be '/:user
 
 router.put("/login", (req, res, next) => {
   const user = User.findOne({
-    //where: {req.body.email, req.body.password} ?destructured?
     where: {
       email: req.body.email,
       password: req.body.password
@@ -58,4 +57,6 @@ router.delete("/logout", (req, res, next) => {
     req.session.destroy()
     req.sendStatus(204)
 })
+
+module.exports = router;
 

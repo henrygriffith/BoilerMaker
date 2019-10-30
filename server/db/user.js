@@ -2,9 +2,7 @@ const Sequelize = require('sequelize');
 const crypto = require('crypto');
 const _ = require('lodash');
 
-const db = new Sequelize('postgres://localhost:5432/test', {
-    logging: false
-})
+const db = require('./index.js')
 
 const User = db.define('user', {
     email: {
@@ -53,8 +51,4 @@ function setSaltAndPassword (user) {
     }
 }
 
-
-module.exports = {
-    db,
-    User
-};
+module.exports = User

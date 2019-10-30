@@ -1,9 +1,10 @@
+const path = require('path')
 const express = require('express')
 const app = express()
 const session = require('express-session')
 const passport = require('passport')
 const morgan = require('morgan')
-const bodyParser = require('bodyParser')
+const bodyParser = require('body-parser')
 
 //-----------logging middleware-------------//
 app.use(morgan('dev'))
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //-------------session middleware-----------//
 app.use(session({
-  seret: process.env.SESSION_SECRET || 'a wildly insecure secret',
+  secret: process.env.SESSION_SECRET || 'a wildly insecure secret',
   resave: false,
   saveUninitialized: false,
 }))

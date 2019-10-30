@@ -20,9 +20,13 @@
     "webpack-cli": "^3.3.9"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "lodash": "^4.17.15",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.4",
+    "passport": "^0.4.0",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "react": "^16.11.0",
